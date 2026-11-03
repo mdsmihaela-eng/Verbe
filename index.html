@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verbe în context – Präsens și Perfekt | Deutsch, meine Sprache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #FAF6EF;
+    --card: #FFFFFF;
+    --soft: #EDF3EE;
+    --green: #1B4332;
+    --gold: #C9A84C;
+    --ink: #1F2A24;
+    --muted: #5B6B62;
+    --line: #E6DFD0;
+    --header-bg: #1B4332;
+    --header-ink: #FAF6EF;
+    --btn-bg: #1B4332;
+    --btn-ink: #FAF6EF;
+    --ok-bg: #E5F4E4;
+    --ok: #2D6A4F;
+    --bad-bg: #FBEBEB;
+    --bad: #A4282C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --page: #11231B;
+      --card: #183126;
+      --soft: #1F3D2F;
+      --green: #9CC7AE;
+      --gold: #D9BA63;
+      --ink: #F3EFE6;
+      --muted: #B4C2BA;
+      --line: #2C4A3B;
+      --header-bg: #0C1B14;
+      --header-ink: #FAF6EF;
+      --btn-bg: #D9BA63;
+      --btn-ink: #11231B;
+      --ok-bg: #1E4A33;
+      --ok: #9FE0B8;
+      --bad-bg: #4A2224;
+      --bad: #F3A6A8;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  header {
+    background: var(--header-bg);
+    color: var(--header-ink);
+    padding: 2.25rem 1.25rem 2.5rem;
+    border-bottom: 4px solid var(--gold);
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .brand {
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    margin: 0 0 0.6rem;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 2.9rem);
+    line-height: 1.1;
+    margin: 0 0 0.6rem;
+  }
+  .lead { margin: 0; opacity: 0.9; max-width: 34rem; }
+
+  main { padding: 1.75rem 1.25rem 3rem; }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .tab {
+    font: inherit;
+    font-size: 0.92rem;
+    text-align: left;
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 0.55rem 0.85rem;
+    cursor: pointer;
+    line-height: 1.25;
+  }
+  .tab small { display: block; color: var(--muted); font-size: 0.78rem; }
+  .tab[aria-selected="true"] {
+    background: var(--soft);
+    border-color: var(--green);
+    box-shadow: inset 0 -3px 0 var(--gold);
+  }
+  .tab:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.6rem 1.5rem 1.4rem;
+  }
+  .card h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 0 0 0.25rem;
+    color: var(--green);
+  }
+  .kind { margin: 0 0 1rem; color: var(--muted); font-size: 0.92rem; }
+  .task {
+    background: var(--soft);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    margin: 0 0 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  details.ro {
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+  details.ro summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--green);
+  }
+  details.ro p { margin: 0.6rem 0 0.2rem; color: var(--ink); }
+
+  .de {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.28rem;
+    line-height: 2.25;
+    margin: 0 0 1.25rem;
+  }
+  .gap {
+    font: inherit;
+    font-size: 1.15rem;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--gold);
+    border-radius: 6px 6px 0 0;
+    padding: 0 0.3rem;
+    margin: 0 0.1rem;
+    text-align: center;
+    min-width: 4ch;
+    transition: background-color 0.2s;
+  }
+  .gap.ok { background: var(--ok-bg); border-bottom-color: var(--ok); color: var(--ok); }
+  .gap.bad { background: var(--bad-bg); border-bottom-color: var(--bad); color: var(--bad); }
+  .gap.shown { background: var(--soft); border-bottom-color: var(--green); }
+  .hint {
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .keys { display: flex; gap: 0.4rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+  .keys span { font-size: 0.85rem; color: var(--muted); margin-right: 0.25rem; }
+  .key {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.05rem;
+    width: 2.4rem; height: 2.4rem;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--page);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    border: 2px solid var(--btn-bg);
+  }
+  .btn.primary { background: var(--btn-bg); color: var(--btn-ink); }
+  .btn.ghost { background: transparent; color: var(--green); border-color: var(--line); }
+
+  .score {
+    margin: 1rem 0 0;
+    font-weight: 500;
+    min-height: 1.5em;
+  }
+  .score.all { color: var(--ok); }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+  .pager .btn { font-weight: 500; }
+  .pager .btn[disabled] { opacity: 0.35; cursor: default; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 0 1.25rem 2rem;
+  }
+  footer a { color: var(--green); }
+
+  @media (max-width: 520px) {
+    .card { padding: 1.25rem 1rem; }
+    .de { font-size: 1.15rem; line-height: 2.35; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gap { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="brand">Deutsch, meine Sprache</p>
+    <h1>Verbe în context</h1>
+    <p class="lead">Texte scurte din viața de zi cu zi, la prezent și la Perfekt.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="tabs" role="tablist" aria-label="Alege textul" id="tabs"></nav>
+    <section class="card" id="card" aria-live="polite"></section>
+    <div class="pager">
+      <button class="btn ghost" id="prev" type="button">Textul anterior</button>
+      <button class="btn ghost" id="next" type="button">Textul următor</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Deutsch, meine Sprache · <a href="mailto:contact@predamihaela.ro">contact@predamihaela.ro</a>
+</footer>
+
+<script>
+const TASKS = {
+  praesens: "Completează verbele la prezent. Infinitivul este în paranteză.",
+  perfekt: "Completează verbele la Perfekt: în primul spațiu verbul auxiliar (haben sau sein), în al doilea participiul. Infinitivul este în paranteză, după participiu.",
+  mix: "Atenție: unele verbe sunt la prezent, altele la Perfekt. Citește tot textul înainte să completezi."
+};
+
+/* {răspuns|infinitiv} = spațiu cu indiciu; {răspuns} = spațiu fără indiciu (verbul auxiliar la Perfekt) */
+const TEXTS = [
+  {
+    title: "Die neue Nachbarin",
+    label: "Präsens",
+    kind: "Prezent: sein, haben, heißen, kommen, wohnen, arbeiten",
+    type: "praesens",
+    ro: "Bună! Mă numesc Ioana și sunt din Cluj. Din octombrie locuiesc aici, la etajul trei. Sunt asistentă medicală și lucrez la spitalul orășenesc. Soțul meu se numește Radu. El este electrician. Avem doi copii și o pisică. Și tu ai copii? Unde lucrezi?",
+    de: "Hallo! Ich {heiße|heißen} Ioana und ich {komme|kommen} aus Cluj. Seit Oktober {wohne|wohnen} ich hier im dritten Stock. Ich {bin|sein} Krankenschwester und {arbeite|arbeiten} im Stadtkrankenhaus. Mein Mann {heißt|heißen} Radu. Er {ist|sein} Elektriker. Wir {haben|haben} zwei Kinder und eine Katze. {Hast|haben} du auch Kinder? Wo {arbeitest|arbeiten} du?"
+  },
+  {
+    title: "Mein Morgen",
+    label: "Präsens",
+    kind: "Prezent: machen, trinken, gehen și verbe care își schimbă vocala (schlafen, essen, fahren, nehmen)",
+    type: "praesens",
+    ro: "Ceasul meu sună la ora șase. Mai întâi fac cafea. Soțul meu încă doarme. Beau cafeaua la fereastră și mănânc o felie de pâine cu brânză. Fiica noastră mănâncă doar musli. La șapte ieșim din casă. Eu merg cu autobuzul la serviciu, dar soțul meu merge cu bicicleta. Și tu? Iei și tu autobuzul dimineața?",
+    de: "Mein Wecker klingelt um sechs Uhr. Ich {mache|machen} zuerst Kaffee. Mein Mann {schläft|schlafen} noch. Ich {trinke|trinken} den Kaffee am Fenster und {esse|essen} ein Brot mit Käse. Unsere Tochter {isst|essen} nur Müsli. Um sieben {gehen|gehen} wir aus dem Haus. Ich {fahre|fahren} mit dem Bus zur Arbeit, aber mein Mann {fährt|fahren} mit dem Fahrrad. Und du? {Nimmst|nehmen} du morgens auch den Bus?"
+  },
+  {
+    title: "Im Café",
+    label: "Präsens",
+    kind: "Prezent: lesen, sprechen, helfen, nehmen, sehen, geben, wissen",
+    type: "praesens",
+    ro: "Lena și Mark stau la cafenea. Mark citește meniul, dar nu înțelege tot. Lena vorbește bine germana și îl ajută. „Ce iei?”, întreabă ea. „Iau un ceai.” Lena vede o plăcintă cu mere în vitrină și comandă o felie. Mai târziu, chelnerul îi dă lui Mark nota. „Știu că azi n-ai bani cash”, spune Mark. „Plătesc eu.”",
+    de: "Lena und Mark sitzen im Café. Mark {liest|lesen} die Speisekarte, aber er {versteht|verstehen} nicht alles. Lena {spricht|sprechen} gut Deutsch und {hilft|helfen} ihm. „Was {nimmst|nehmen} du?“, fragt sie. „Ich {nehme|nehmen} einen Tee.“ Lena {sieht|sehen} einen Apfelkuchen in der Vitrine und {bestellt|bestellen} ein Stück. Später {gibt|geben} der Kellner Mark die Rechnung. „Ich {weiß|wissen}, du hast heute kein Bargeld“, sagt Mark. „Ich {zahle|zahlen}.“"
+  },
+  {
+    title: "Mein Wochenende",
+    label: "Perfekt cu haben",
+    kind: "Perfekt cu haben: schlafen, kaufen, kochen, essen, spielen, lesen, trinken, sehen, lernen",
+    type: "perfekt",
+    ro: "Sâmbătă am dormit mult. Apoi am cumpărat fructe și legume de la piață. La prânz am gătit împreună și am mâncat în grădină. După-amiază copiii au jucat fotbal. Eu am citit o carte și am băut ceai. Seara ne-am uitat la un film. Duminică am învățat pentru cursul de germană.",
+    de: "Am Samstag {habe} ich lange {geschlafen|schlafen}. Dann {habe} ich auf dem Markt Obst und Gemüse {gekauft|kaufen}. Am Mittag {haben} wir zusammen {gekocht|kochen} und im Garten {gegessen|essen}. Am Nachmittag {haben} die Kinder Fußball {gespielt|spielen}. Ich {habe} ein Buch {gelesen|lesen} und Tee {getrunken|trinken}. Am Abend {haben} wir einen Film {gesehen|sehen}. Am Sonntag {habe} ich für meinen Deutschkurs {gelernt|lernen}."
+  },
+  {
+    title: "Ein Ausflug nach Sinaia",
+    label: "Perfekt cu sein și haben",
+    kind: "Perfekt cu sein (fahren, ankommen, gehen, wandern, bleiben, kommen) și cu haben (nehmen, machen, finden)",
+    type: "perfekt",
+    ro: "Duminica trecută am mers la Sinaia. Am luat trenul de la ora opt. La zece am ajuns. Mai întâi am mers la Castelul Peleș. Acolo am făcut multe poze. După aceea am făcut o drumeție pe munte. Sus am găsit un restaurant mic. Am rămas acolo două ore. Seara am ajuns acasă obosiți, dar fericiți.",
+    de: "Letzten Sonntag {sind} wir nach Sinaia {gefahren|fahren}. Wir {haben} den Zug um acht Uhr {genommen|nehmen}. Um zehn {sind} wir {angekommen|ankommen}. Zuerst {sind} wir zum Schloss Peleș {gegangen|gehen}. Dort {haben} wir viele Fotos {gemacht|machen}. Danach {sind} wir in die Berge {gewandert|wandern}. Oben {haben} wir ein kleines Restaurant {gefunden|finden}. Wir {sind} zwei Stunden dort {geblieben|bleiben}. Am Abend {sind} wir müde, aber glücklich nach Hause {gekommen|kommen}."
+  },
+  {
+    title: "Eine Nachricht an Ana",
+    label: "Prezent și Perfekt",
+    kind: "Amestec: prezent și Perfekt în același text",
+    type: "mix",
+    ro: "Dragă Ana,\nce mai faci? Eu sunt bine, dar sunt puțin obosită. Ieri am lucrat până târziu. Azi sunt liberă. Azi-dimineață am sunat-o pe mama. Vine vineri în vizită. Am copt deja o prăjitură. Ai timp sâmbătă? Mergem la cinema. Vii și tu?\nCu drag,\nElena",
+    de: "Liebe Ana,\nwie {geht|gehen} es dir? Mir {geht|gehen} es gut, aber ich {bin|sein} ein bisschen müde. Gestern {habe} ich bis spät {gearbeitet|arbeiten}. Heute {habe|haben} ich frei. Heute Morgen {habe} ich meine Mutter {angerufen|anrufen}. Sie {kommt|kommen} am Freitag zu Besuch. Ich {habe} schon einen Kuchen {gebacken|backen}. {Hast|haben} du am Samstag Zeit? Wir {gehen|gehen} ins Kino. {Kommst|kommen} du mit?\nViele Grüße\nElena"
+  }
+];
+
+const tabsEl = document.getElementById("tabs");
+const cardEl = document.getElementById("card");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+let current = 0;
+let lastFocused = null;
+
+function esc(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function plain(s) {
+  return esc(s).replace(/\n/g, "<br>");
+}
+function norm(s) {
+  return s.trim().toLowerCase().replace(/ß/g, "ss").replace(/\s+/g, " ");
+}
+
+function buildText(de) {
+  const re = /\{([^}|]+)(?:\|([^}]+))?\}/g;
+  let html = "";
+  let last = 0;
+  let m;
+  let n = 0;
+  while ((m = re.exec(de)) !== null) {
+    html += plain(de.slice(last, m.index));
+    const answer = m[1];
+    const hint = m[2];
+    const width = Math.max(answer.length, 3) + 2;
+    const label = hint ? "Verbul " + hint : "Verbul auxiliar";
+    html += '<input class="gap" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"'
+      + ' data-answer="' + esc(answer) + '" aria-label="' + esc(label) + '"'
+      + ' style="width:' + width + 'ch" id="g' + (n++) + '">';
+    if (hint) html += ' <span class="hint">(' + esc(hint) + ')</span>';
+    last = re.lastIndex;
+  }
+  html += plain(de.slice(last));
+  return html;
+}
+
+function renderTabs() {
+  tabsEl.innerHTML = TEXTS.map((t, i) =>
+    '<button class="tab" type="button" role="tab" aria-selected="' + (i === current) + '" data-i="' + i + '">'
+    + "Textul " + (i + 1) + "<small>" + esc(t.label) + "</small></button>"
+  ).join("");
+}
+
+function render() {
+  const t = TEXTS[current];
+  renderTabs();
+  cardEl.innerHTML =
+    "<h2>" + esc(t.title) + "</h2>"
+    + '<p class="kind">' + esc(t.kind) + "</p>"
+    + '<p class="task">' + esc(TASKS[t.type]) + "</p>"
+    + '<details class="ro"><summary>Vezi textul în română</summary><p>' + plain(t.ro) + "</p></details>"
+    + '<p class="de" lang="de">' + buildText(t.de) + "</p>"
+    + '<div class="keys" aria-label="Litere germane"><span>Litere:</span>'
+    + ["ä", "ö", "ü", "ß"].map(k => '<button class="key" type="button" data-k="' + k + '">' + k + "</button>").join("")
+    + "</div>"
+    + '<div class="actions">'
+    + '<button class="btn primary" type="button" id="check">Verifică</button>'
+    + '<button class="btn ghost" type="button" id="show">Arată soluțiile</button>'
+    + '<button class="btn ghost" type="button" id="reset">Încearcă din nou</button>'
+    + "</div>"
+    + '<p class="score" id="score"></p>';
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === TEXTS.length - 1;
+  lastFocused = null;
+  bindCard();
+}
+
+function gaps() {
+  return Array.from(cardEl.querySelectorAll(".gap"));
+}
+
+function bindCard() {
+  const list = gaps();
+  list.forEach((g, i) => {
+    g.addEventListener("focus", () => { lastFocused = g; });
+    g.addEventListener("input", () => g.classList.remove("ok", "bad", "shown"));
+    g.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (list[i + 1]) list[i + 1].focus();
+        else document.getElementById("check").focus();
+      }
+    });
+  });
+
+  cardEl.querySelectorAll(".key").forEach(k => {
+    k.addEventListener("mousedown", e => e.preventDefault());
+    k.addEventListener("click", () => {
+      const g = lastFocused || list.find(x => !x.value) || list[0];
+      if (!g) return;
+      const start = g.selectionStart ?? g.value.length;
+      const end = g.selectionEnd ?? g.value.length;
+      g.value = g.value.slice(0, start) + k.dataset.k + g.value.slice(end);
+      g.focus();
+      g.setSelectionRange(start + 1, start + 1);
+      g.classList.remove("ok", "bad", "shown");
+    });
+  });
+
+  document.getElementById("check").addEventListener("click", () => {
+    let right = 0;
+    list.forEach(g => {
+      g.classList.remove("ok", "bad", "shown");
+      if (norm(g.value) === norm(g.dataset.answer)) {
+        g.classList.add("ok");
+        right++;
+      } else {
+        g.classList.add("bad");
+      }
+    });
+    const score = document.getElementById("score");
+    score.classList.toggle("all", right === list.length);
+    score.textContent = right === list.length
+      ? "Perfect! Toate cele " + list.length + " răspunsuri sunt corecte."
+      : "Ai " + right + " din " + list.length + " răspunsuri corecte. Corectează spațiile roșii și verifică din nou.";
+  });
+
+  document.getElementById("show").addEventListener("click", () => {
+    list.forEach(g => {
+      if (norm(g.value) !== norm(g.dataset.answer)) {
+        g.value = g.dataset.answer;
+        g.classList.remove("ok", "bad");
+        g.classList.add("shown");
+      } else {
+        g.classList.add("ok");
+      }
+    });
+    const score = document.getElementById("score");
+    score.classList.remove("all");
+    score.textContent = "Soluțiile sunt completate. Citește textul cu voce tare.";
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    list.forEach(g => { g.value = ""; g.classList.remove("ok", "bad", "shown"); });
+    const score = document.getElementById("score");
+    score.textContent = "";
+    score.classList.remove("all");
+    if (list[0]) list[0].focus();
+  });
+}
+
+tabsEl.addEventListener("click", e => {
+  const b = e.target.closest(".tab");
+  if (!b) return;
+  current = Number(b.dataset.i);
+  render();
+});
+prevBtn.addEventListener("click", () => { if (current > 0) { current--; render(); window.scrollTo({ top: 0 }); } });
+nextBtn.addEventListener("click", () => { if (current < TEXTS.length - 1) { current++; render(); window.scrollTo({ top: 0 }); } });
+
+render();
+</script>
+</body>
+</html>
